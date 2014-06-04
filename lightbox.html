@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WP</title>
+	<link rel="stylesheet" href="css/styles.css">
+	<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+</head>
+<script>
+jQuery(document).ready(function($) {
+	$('#passage').html('The greatest ride in my life was about to come up, a truck, with a flatboard at the back, with about six or seven boys sprawled out on it, and the drivers, two young blond farmers from Minnesota, were picking up every single soul they found on that road-the most smiling, cheerful couple of handsome bumpkins you could ever wish to see, both wearing cotton shirts and overalls, nothing else; both thick-wristed and earnest, with broad howareyou smiles for anybody and anything that came across their path. I ran up, said "Is there room?" They said, "Sure, hop on, \'sroom for everybody."');
+	$('#author').html('Jack Kerouac<br> On the Road');
+	 
+	//show lightbox window
+	$('#lightbox').show();
+
+	var scrollDiv = $('#content');
+	var lastScroll = 0;
+	var maxWidth = 800;
+    var minWidth = maxWidth/3;
+	$(document).scroll(function(event){
+		var viewportHeight = $(window).height();
+	    var st = $(this).scrollTop();
+	    if (st > lastScroll){
+	        var divWidth = scrollDiv.width();
+	        var divHeight = scrollDiv.height();
+            var imgWidth = $("img").width();
+	        if(divWidth >= minWidth) { 				//keep minimum width at 50px to still be readable
+	        	divWidth-=15; 						//decrease width by 17px on scroll down
+                imgWidth-=5;
+	        	scrollDiv.css({width:divWidth,});
+	        }
+	    } 
+	    else {
+	        var divWidth = scrollDiv.width();
+	        if(divWidth <= maxWidth) {  		//keep maximum width at 800px
+		        divWidth+=15;					//increase width by 17px on scroll down
+		        scrollDiv.css({width:divWidth});
+	        }
+	    }
+	    lastScroll = st;
+	});
+ 
+});
+</script>
+<body>
+
+	<div id="lightbox">
+		<div id="content">
+            <img src="img/kitteh.jpg" alt="kitteh" class="kitteh">
+            <img src="img/kitteh.jpg" alt="kitteh" class="kitteh">
+            <img src="img/kitteh.jpg" alt="kitteh" class="kitteh">
+            <img src="img/kitteh.jpg" alt="kitteh" class="kitteh">
+            <img src="img/kitteh.jpg" alt="kitteh" class="kitteh">
+            <img src="img/kitteh.jpg" alt="kitteh" class="kitteh">
+			<div id="passage"></div>
+			<div id="author"></div>
+		</div>
+	</div>
+
+</div>
+</body>
+</html>
