@@ -1,0 +1,4 @@
+WP
+==
+
+simple lightbox implemention
