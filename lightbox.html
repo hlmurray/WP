@@ -8,28 +8,21 @@
 	<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
 </head>
 <script>
-var lightBoxPlugin = {
-    verticallyAlign: function($el){
-			$el.css({
-				top : ($(window).height() - $el.outerHeight()) / 2
-			});
-		}
-};
 $(function() {
 	var $lightBox = $('#lightbox');
-    var $content = $('#content');
-    var lastScroll = 0;
+	var $content = $('#content');
+	var lastScroll = 0;
 	var maxWidth = 800;
-    var mySize = 100;
+	var mySize = 100;
 	var minWidth = maxWidth/3;
     
-    //show lightbox window
+	//show lightbox window
 	$lightBox.show();
 
-	lightBoxPlugin.verticallyAlign($content);
+	$content.css({ top : ($(window).height() - $content.outerHeight()) / 2 });
 
 	$(window).resize(function() {
-		lightBoxPlugin.verticallyAlign($content);
+		$content.css({ top : ($(window).height() - $content.outerHeight()) / 2 });
 	});
 
 	$(document).scroll(function(event){
@@ -57,7 +50,7 @@ $(function() {
 		}
 		lastScroll = st;
 
-		lightBoxPlugin.verticallyAlign($content);
+		$content.css({ top : ($(window).height() - $content.outerHeight()) / 2 });
 	});
  
 });
