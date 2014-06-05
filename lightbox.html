@@ -17,42 +17,39 @@ $(function() {
     
 	//show lightbox window
 	$lightBox.show();
-
-	$content.css({ top : ($(window).height() - $content.outerHeight()) / 2 });
+	$content.css({ top: ($(window).height() - $content.outerHeight()) / 2 });
 
 	$(window).resize(function() {
-		$content.css({ top : ($(window).height() - $content.outerHeight()) / 2 });
+		$content.css({ top: ($(window).height() - $content.outerHeight()) / 2 });
 	});
-
 	$(document).scroll(function(event){
-		var st = $(this).scrollTop();
+		var scrollPosition = $(this).scrollTop();
         var divWidth = $content.width();
         var divHeight = $content.height();
-		if (st > lastScroll){
-            //keep minimum width at 1/3 of max width
-            //decrease width by 15px on scroll down
+
+		if (scrollPosition > lastScroll) {
+			//keep minimum width at 1/3 of max width
+        	//decrease width by 15px on scroll down
 			if(divWidth > minWidth) {
 		    	divWidth -= 15;
-                $content.css({width:divWidth});
-			}
-	    } 
+	            $content.css({ width: divWidth });
+        	}
+        }
 	    else {
-            //keep maximum width at 800px
-            //increase width by 15px on scroll up
-			if(divWidth < maxWidth) {
+	    	//keep maximum width at 800px
+          	//increase width by 15px on scroll up
+	    	if(divWidth < maxWidth) {
 				divWidth += 15;
-                $content.css({width:divWidth});
+	            $content.css({ width: divWidth });
 			}
 		}
-		lastScroll = st;
-
-		$content.css({ top : ($(window).height() - $content.outerHeight()) / 2 });
+		lastScroll = scrollPosition;
+		$content.css({ top: ($(window).height() - $content.outerHeight()) / 2 });
 	});
  
 });
 </script>
 <body>
-
 	<div id="lightbox">
 		<div id="content">
 			<div id="image">
@@ -72,7 +69,6 @@ $(function() {
 			</div>
 		</div>
 	</div>
-
 </div>
 </body>
 </html>
