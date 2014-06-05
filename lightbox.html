@@ -13,7 +13,6 @@ $(function() {
 	var $content = $('#content');
 	var lastScroll = 0;
 	var maxWidth = 800;
-	var mySize = 100;
 	var minWidth = maxWidth/3;
     
 	//show lightbox window
@@ -29,12 +28,10 @@ $(function() {
 		var st = $(this).scrollTop();
         var divWidth = $content.width();
         var divHeight = $content.height();
-        $content.css('font-size',  mySize + '%');
 		if (st > lastScroll){
             //keep minimum width at 1/3 of max width
             //decrease width by 15px on scroll down
 			if(divWidth > minWidth) {
-                mySize -= .5;
 		    	divWidth -= 15;
                 $content.css({width:divWidth});
 			}
@@ -43,7 +40,6 @@ $(function() {
             //keep maximum width at 800px
             //increase width by 15px on scroll down
 			if(divWidth < maxWidth) {
-                mySize += .5;
 				divWidth += 15;
                 $content.css({width:divWidth});
 			}
